@@ -1,5 +1,7 @@
 import 'package:blocfork/bloc/internet.bloc/internet.bloc.dart';
-import 'package:blocfork/screen/home.screen.dart';
+import 'package:blocfork/bloc/sign.in.bloc/sign.in.bloc.dart';
+// import 'package:blocfork/screen/home.screen.dart';
+import 'package:blocfork/screen/sign.in.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,7 +22,10 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: const HomeScreen(),
+        home: BlocProvider(
+          create: (context) => SignInBloc(),
+          child: SignInScreen(),
+        ),
       ),
     );
   }
